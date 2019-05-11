@@ -1,0 +1,6 @@
+﻿  CubeDetection.cpp
+c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(23): warning C4101: 'piece': unreferenced local variable
+c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(23): warning C4101: 'face': unreferenced local variable
+c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(23): warning C4101: 'pix': unreferenced local variable
+c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(15): warning C4101: 'faces': unreferenced local variable
+  CubeDetection.vcxproj -> C:\Users\mostl\OneDrive\Projects\Website\CubeDetection\Debug\CubeDetection.exe

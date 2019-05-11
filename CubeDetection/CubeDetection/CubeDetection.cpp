@@ -3,19 +3,89 @@
 
 #include "pch.h"
 #include <iostream>
+#include "CImg\CImg.h"
+
+
+using namespace cimg_library;
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	// Main data array for cube realization
+	unsigned char faces[3][9][9][3];
+
+	// Store pixel variables
+	int R = 0;
+	int G = 1;
+	int B = 2;
+
+	// for loop variables
+	int face, piece, pix;
+
+	// Load x,y data, predetermined from our still image
+	
+	int xy[3][9][9][2] = {
+		{ // Face 1
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 1, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 2, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 3, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 4, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 5, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 6, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 7, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 8, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }  // Piece 9, Pixels 1-9
+		},
+		{ // Face 2
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 1, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }
+		},
+		{ // Face 3
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }, // Piece 1, Pixels 1-9
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} },
+			{ {}, {}, {}, {}, {}, {}, {}, {}, {} }
+		}
+	};
+
+	
+	/* Image Indexing*/
+	// img(x,y,z,c) pixel x, y, z, color channel
+
+	const CImg<float> img("ryu2.bmp");
+	img.display();
+	//cout << img(); // c = 0, 1, or 2 for RGB
+
+	// Take in Pixel Data
+	// Step 1. Develop img
+	// const CImg<float> img("cube.bmp");
+	
+	// Untested
+	// Store RGB value per pixel
+	for (face = 0; face < 3; face++) {
+		for (piece = 0; piece < 9; piece++) {
+			for (pix = 0; pix < 9; pix++) {      // (x,y,0,C)
+				faces[face][piece][pix][R] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, R);
+				faces[face][piece][pix][G] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, G);
+				faces[face][piece][pix][B] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, B);
+			}
+		}
+	}
+	
+	// Compare and average, store as "R", "G", "B", "W", "Y", "O"
+
+
+	while(1); // for debug only
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
