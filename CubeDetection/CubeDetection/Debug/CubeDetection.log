@@ -1,6 +1,9 @@
 ﻿  CubeDetection.cpp
-c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(23): warning C4101: 'piece': unreferenced local variable
-c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(23): warning C4101: 'face': unreferenced local variable
-c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(23): warning C4101: 'pix': unreferenced local variable
-c:\users\mostl\onedrive\projects\website\cubedetection\cubedetection\cubedetection.cpp(15): warning C4101: 'faces': unreferenced local variable
-  CubeDetection.vcxproj -> C:\Users\mostl\OneDrive\Projects\Website\CubeDetection\Debug\CubeDetection.exe
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(30): warning C4101: 'piece': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(30): warning C4101: 'face': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(30): warning C4101: 'pix': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(22): warning C4101: 'faces': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(139): warning C4101: 'counter': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(174): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(182): warning C4018: '<': signed/unsigned mismatch
+  CubeDetection.vcxproj -> C:\Projects\C++\git\rubiksCube\Rubiks-Cube\CubeDetection\Debug\CubeDetection.exe

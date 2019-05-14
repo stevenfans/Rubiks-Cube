@@ -3,15 +3,22 @@
 
 #include "pch.h"
 #include <iostream>
-#include "CImg/CImg.h"
-
+#include <vector>
+#include <algorithm>
+#include "C:\Projects\CImg-2.6.1\CImg.h"
 
 using namespace cimg_library;
 using namespace std;
+void pix_color(int x, int y); 
+void average(int r, int g, int b);
+int max(vector<int>rgb);
+int min(vector<int>rgb);
+const CImg<float> img("C:\\Projects\\C++\\git\\rubiksCube\\Rubiks-Cube\\CubeDetection\\test2.bmp");
 
 int main()
 {
 	// Main data array for cube realization
+
 	unsigned char faces[3][9][9][3];
 
 	// Store pixel variables
@@ -23,7 +30,7 @@ int main()
 	int face, piece, pix;
 
 	// Load x,y data, predetermined from our still image
-	
+	//    [side][section][pixel][xy]
 	int xy[3][9][9][2] = {
 		{ // Face 1
 			{ {1600,200}, {1625,195}, {1625,205}, {1650,195}, {1650,200}, {1650,205}, {1675,195}, {1675,205}, {1700,200} }, // Piece 1, Pixels 1-9
@@ -64,8 +71,9 @@ int main()
 	/* Image Indexing*/
 	// img(x,y,z,c) pixel x, y, z, color channel
 
-	const CImg<float> img("C:/Users/Ben/source/repos/Rubiks-Cube/CubeDetection/CubeDetection/test2.bmp");
+	const CImg<float> img("C:\\Projects\\C++\\git\\rubiksCube\\Rubiks-Cube\\CubeDetection\\test2.bmp");
 	img.display();
+	cout << endl; 
 	//cout << img(); // c = 0, 1, or 2 for RGB
 
 	// Take in Pixel Data
@@ -74,19 +82,107 @@ int main()
 	
 	// Untested
 	// Store RGB value per pixel
-	for (face = 0; face < 3; face++) {
-		for (piece = 0; piece < 9; piece++) {
-			for (pix = 0; pix < 9; pix++) {      // (x,y,0,C)
-				faces[face][piece][pix][R] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, R);
-				faces[face][piece][pix][G] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, G);
-				faces[face][piece][pix][B] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, B);
+	//for (face = 0; face < 3; face++) {
+	//	for (piece = 0; piece < 9; piece++) {
+	//		for (pix = 0; pix < 9; pix++) {      // (x,y,0,C)
+	//			faces[face][piece][pix][R] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, R);
+	//			faces[face][piece][pix][G] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, G);
+	//			faces[face][piece][pix][B] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, B);
+	//		}
+	//	}
+	//}
+
+		// [side][section][pixel][xy]
+	for (int side = 0; side < 3; side++) {
+		for (int section = 0; section < 9; section++) {
+			for (int pixel = 0; pixel < 9; pixel++) {
+				cout << "Side:" << side + 1 << " | " << "Section" << section + 1 <<
+					      " | " << "Pixel:" << pixel<< endl;
+				for (int coord = 0; coord < 1; coord++) {
+					cout << "(" << xy[side][section][pixel][coord] << "," << xy[side][section][pixel][coord + 1] << ")" << endl;
+					pix_color(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1]);
+				}
+				cout << endl; 
 			}
 		}
 	}
-	
 	
 	// Compare and average, store as "R", "G", "B", "W", "Y", "O"
 
 
 	while(1); // for debug only
+}
+
+void pix_color(int x, int y) {
+	// R:0 G:1 B:2
+
+	int r = (int)img(x, y, 0, 0);
+	int g = (int)img(x, y, 0, 1);
+	int b = (int)img(x, y, 0, 2);
+
+	cout << "R:" << r <<
+		" G:" << g <<
+		" B:" << b << endl;
+	average(r, g, b);
+
+	//// trying a switch case statement for choosing which color it is
+	//if (r > 99 && g < 20 && b < 99) cout << "RED" << endl << endl;
+	//else if (r < 5 && g < 140 && b > 120) cout << "BLUE" << endl << endl;
+	//else if (r < 10 && g > 80 && b < 110) cout << "GREEN" << endl << endl;
+	//else if (r > 120 && g > 55 && 3 < b && b < 20) cout << "ORANGE" << endl << endl;
+	//else if (r > 155 && g > 150 && b < 7) cout << "YELLOW" << endl << endl;
+	//else if (r > 100 && g > 120 && b > 130) cout << "WHITE" << endl << endl;
+}
+
+void average(int r, int g, int b) {
+	vector<int> red;
+	vector<int> green; 
+	vector<int> blue; 
+	int counter; // counter to get the max value in vector
+	
+	// max and min of each rgb
+	int rmin, rmax,
+		gmin, gmax,
+		bmin, bmax; 
+	
+	// reset the vectors
+	if (blue.size() == 8) {
+		
+	}
+
+	// add new rgb elements in appropriate 
+	red.push_back(r); 
+	green.push_back(g); 
+	blue.push_back(b); 
+
+	if (blue.size() == 8) { // 9 pixel elements
+		// find max and min of each vector 
+		rmin = min(red); 
+		rmax = max(red); 
+		gmin = min(green); 
+		gmax = max(green);
+		bmin = min(blue); 
+		bmax = max(blue); 
+	}
+
+}
+void color(int r, int g, int b){
+
+}
+
+int max(vector<int>rgb) {
+	int max = rgb[0];
+	
+	for (int i = 0; i < rgb.size(); i++) {
+		if (max < rgb[i]) max = rgb[i]; 
+	}
+	return max;
+}
+int min(vector<int>rgb) {
+	int min = rgb[0];
+
+	for (int i = 0; i < rgb.size(); i++) {
+		if (min < rgb[i]) min = rgb[i];
+	}
+	return min;
 }
