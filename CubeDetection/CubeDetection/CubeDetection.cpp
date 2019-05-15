@@ -4,7 +4,9 @@
 #include "pch.h"
 #include <iostream>
 #include <vector>
+#include <array>
 #include <algorithm>
+#include <numeric>
 #include "C:\Projects\CImg-2.6.1\CImg.h"
 
 using namespace cimg_library;
@@ -13,12 +15,27 @@ void pix_color(int x, int y);
 void average(int r, int g, int b);
 int max(vector<int>rgb);
 int min(vector<int>rgb);
+int red_pix(int x, int y);
+int green_pix(int x, int y);
+int blue_pix(int x, int y);
+int size(int arr[9]);
+int sum(int rgb[9]);
+
 const CImg<float> img("C:\\Projects\\C++\\git\\rubiksCube\\Rubiks-Cube\\CubeDetection\\test2.bmp");
+
+//I hate my ife
+	// sume of rgb elements
+int red_sum=0;
+int blue_sum=0;
+int green_sum=0;
+vector<int> red;
+vector<int> green;
+vector<int> blue;
 
 int main()
 {
 	// Main data array for cube realization
-
+	//[side][section][pixel][rgb]
 	unsigned char faces[3][9][9][3];
 
 	// Store pixel variables
@@ -27,7 +44,7 @@ int main()
 	int B = 2;
 
 	// for loop variables
-	int face, piece, pix;
+	int face, piece, pixel, rgb;
 
 	// Load x,y data, predetermined from our still image
 	//    [side][section][pixel][xy]
@@ -74,38 +91,74 @@ int main()
 	const CImg<float> img("C:\\Projects\\C++\\git\\rubiksCube\\Rubiks-Cube\\CubeDetection\\test2.bmp");
 	img.display();
 	cout << endl; 
-	//cout << img(); // c = 0, 1, or 2 for RGB
 
 	// Take in Pixel Data
 	// Step 1. Develop img
 	// const CImg<float> img("cube.bmp");
 	
+	vector<int> test; 
+
 	// Untested
 	// Store RGB value per pixel
-	//for (face = 0; face < 3; face++) {
-	//	for (piece = 0; piece < 9; piece++) {
-	//		for (pix = 0; pix < 9; pix++) {      // (x,y,0,C)
-	//			faces[face][piece][pix][R] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, R);
-	//			faces[face][piece][pix][G] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, G);
-	//			faces[face][piece][pix][B] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, B);
-	//		}
-	//	}
-	//}
+	for (face = 0; face < 3; face++) {
+		for (piece = 0; piece < 9; piece++) {
+			for (int pix = 0; pix < 9; pix++) {      // (x,y,0,C)
+				cout << "Side:" << face + 1 << " | " << "Section" << piece + 1 <<
+					" | " << "Pixel:" << pix << endl;
+				faces[face][piece][pix][R] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, R);
+				faces[face][piece][pix][G] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, G);
+				faces[face][piece][pix][B] = img(xy[face][piece][pix][0], xy[face][piece][pix][1], 0, B);
+				cout << "(" << xy[face][piece][pix][0] << "," << xy[face][piece][pix][1] << ")" << endl;
+				pix_color(xy[face][piece][pix][0], xy[face][piece][pix][1]);
 
-		// [side][section][pixel][xy]
-	for (int side = 0; side < 3; side++) {
-		for (int section = 0; section < 9; section++) {
-			for (int pixel = 0; pixel < 9; pixel++) {
-				cout << "Side:" << side + 1 << " | " << "Section" << section + 1 <<
-					      " | " << "Pixel:" << pixel<< endl;
-				for (int coord = 0; coord < 1; coord++) {
-					cout << "(" << xy[side][section][pixel][coord] << "," << xy[side][section][pixel][coord + 1] << ")" << endl;
-					pix_color(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1]);
+				test.push_back(faces[face][piece][pix][R]);
+				int sum, avg; 
+				if (test.size() >= 9) {
+					sum = accumulate(test.begin(), test.end(), 0);
+					cout << "Sum: " << sum << endl;
+					avg = sum / test.size(); 
+					cout << "Average: " << avg << endl<<endl; 
+					test.clear(); //clear the vector DUH??
+				
+					
 				}
-				cout << endl; 
+				
+
 			}
 		}
 	}
+	//vector<int> red;
+	//vector<int> green;
+	//vector<int> blue;
+	//int r, g, b; 
+		// [side][section][pixel][xy]
+	//for (int side = 0; side < 3; side++) {
+	//	for (int section = 0; section < 9; section++) {
+	//		for (int pixel = 0; pixel < 9; pixel++) {
+	//			cout << "Side:" << side + 1 << " | " << "Section" << section + 1 <<
+	//				      " | " << "Pixel:" << pixel<< endl;
+
+	//			for (int coord = 0; coord < 1; coord++) {
+	//				cout << "(" << xy[side][section][pixel][coord] << "," << xy[side][section][pixel][coord + 1] << ")" << endl;
+	//				//pix_color(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1]);
+	//				cout << red_pix(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1]) << ", ";
+	//				cout << green_pix(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1])<<", ";
+	//				cout << blue_pix(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1])<<endl;
+	//				
+	//				// update the vectors
+	//				r = red_pix(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1]);
+	//				g = green_pix(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1]);
+	//				b = blue_pix(xy[side][section][pixel][coord], xy[side][section][pixel][coord + 1]); 
+
+	//				red.push_back(r); 
+	//				green.push_back(g);
+	//				blue.push_back(b);
+
+	//			}
+	//			cout << endl; 
+	//		}
+	//	}
+	//}
 	
 	// Compare and average, store as "R", "G", "B", "W", "Y", "O"
 
@@ -113,8 +166,40 @@ int main()
 	while(1); // for debug only
 }
 
+int sum(vector<int>test) {
+	int sum = 0;
+	//unsigned char faces[3][9][9][3];
+	
+	for (int i = 0; i < 9; i++) {
+		sum += test[i]; 
+	}
+	return sum; 
+}
+
+int size(int arr[9]) {
+	int count = 0; 
+	for (int i = 0; i < 9; i++) count++;
+	return count;
+}
+
+int red_pix(int x, int y) {
+	int r = (int)img(x, y, 0, 0);
+	return r; 
+}
+int green_pix(int x, int y) {
+	int g = (int)img(x, y, 0, 1);
+	return g;
+}
+int blue_pix(int x, int y) {
+	int b = (int)img(x, y, 0, 2);
+	return b;
+}
+
 void pix_color(int x, int y) {
 	// R:0 G:1 B:2
+	//vector<int> red;
+	//vector<int> green;
+	//vector<int> blue;
 
 	int r = (int)img(x, y, 0, 0);
 	int g = (int)img(x, y, 0, 1);
@@ -122,8 +207,8 @@ void pix_color(int x, int y) {
 
 	cout << "R:" << r <<
 		" G:" << g <<
-		" B:" << b << endl;
-	average(r, g, b);
+		" B:" << b << endl<<endl;
+	//average(r, g, b);
 
 	//// trying a switch case statement for choosing which color it is
 	//if (r > 99 && g < 20 && b < 99) cout << "RED" << endl << endl;
@@ -133,38 +218,45 @@ void pix_color(int x, int y) {
 	//else if (r > 155 && g > 150 && b < 7) cout << "YELLOW" << endl << endl;
 	//else if (r > 100 && g > 120 && b > 130) cout << "WHITE" << endl << endl;
 }
-
 void average(int r, int g, int b) {
-	vector<int> red;
-	vector<int> green; 
-	vector<int> blue; 
+	//vector<int> red;
+	//vector<int> green; 
+	//vector<int> blue; 
 	int counter; // counter to get the max value in vector
-	
-	// max and min of each rgb
+
+	// max and min of each rgb?? DO we need this??
 	int rmin, rmax,
 		gmin, gmax,
 		bmin, bmax; 
 	
 	// reset the vectors
-	if (blue.size() == 8) {
-		
-	}
 
 	// add new rgb elements in appropriate 
-	red.push_back(r); 
-	green.push_back(g); 
-	blue.push_back(b); 
-
-	if (blue.size() == 8) { // 9 pixel elements
-		// find max and min of each vector 
-		rmin = min(red); 
-		rmax = max(red); 
-		gmin = min(green); 
-		gmax = max(green);
-		bmin = min(blue); 
-		bmax = max(blue); 
+	if (blue.size() < 9) {
+		red.push_back(r);
+		green.push_back(g);
+		blue.push_back(b);
+	} 
+	else if (blue.size() >= 9) {
+		// add up all hte elements in the vecotr
+		red_sum = accumulate(red.begin(), red.end(), 0); 
+		green_sum = accumulate(green.begin(), green.end(), 0);
+		blue_sum = accumulate(blue.begin(), blue.end(), 0);
+		cout <<"the Sum of red rgb is "<< red_sum << endl;
+		
+		//clear vectors
+		red.clear();
+		/*green.clear();
+		blue.clear();*/
 	}
 
+	for (int i = 0; i < red.size(); i++) {
+		cout << red[i] << endl;
+	}
+
+	/*cout << green_sum << endl; 
+	cout << blue_sum << endl;*/ 
+	
 }
 void color(int r, int g, int b){
 
