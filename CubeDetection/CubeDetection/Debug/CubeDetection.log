@@ -1,29 +1,29 @@
-﻿  CubeDetection.cpp
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(108): warning C4244: '=': conversion from 'const T' to 'unsigned char', possible loss of data
+﻿  CubeDetection_pixAvg.cpp
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(114): warning C4244: '=': conversion from 'const T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(109): warning C4244: '=': conversion from 'const T' to 'unsigned char', possible loss of data
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(115): warning C4244: '=': conversion from 'const T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(110): warning C4244: '=': conversion from 'const T' to 'unsigned char', possible loss of data
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(116): warning C4244: '=': conversion from 'const T' to 'unsigned char', possible loss of data
           with
           [
               T=float
           ]
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(47): warning C4101: 'rgb': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(47): warning C4101: 'pixel': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(253): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(230): warning C4101: 'bmin': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(225): warning C4101: 'counter': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(229): warning C4101: 'gmin': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(228): warning C4101: 'rmax': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(229): warning C4101: 'gmax': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(228): warning C4101: 'rmin': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(230): warning C4101: 'bmax': unreferenced local variable
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(268): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection.cpp(276): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(47): warning C4101: 'rgb': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(47): warning C4101: 'pixel': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(288): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(265): warning C4101: 'bmin': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(260): warning C4101: 'counter': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(264): warning C4101: 'gmin': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(263): warning C4101: 'rmax': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(264): warning C4101: 'gmax': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(263): warning C4101: 'rmin': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(265): warning C4101: 'bmax': unreferenced local variable
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(303): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\git\rubikscube\rubiks-cube\cubedetection\cubedetection\cubedetection_pixavg.cpp(311): warning C4018: '<': signed/unsigned mismatch
   CubeDetection.vcxproj -> C:\Projects\C++\git\rubiksCube\Rubiks-Cube\CubeDetection\Debug\CubeDetection.exe

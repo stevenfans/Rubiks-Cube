@@ -26,7 +26,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CubeDetection.cpp">
+    <ClCompile Include="CubeDetection_pixAvg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

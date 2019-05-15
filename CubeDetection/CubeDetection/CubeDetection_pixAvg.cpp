@@ -7,7 +7,7 @@
 #include <array>
 #include <algorithm>
 #include <numeric>
-#include "C:\Users\jonicmecija\Desktop\CImg-2.6.1\CImg.h"
+#include "C:\Projects\CImg-2.6.1\CImg.h"
 
 using namespace cimg_library;
 using namespace std;
@@ -21,7 +21,7 @@ int blue_pix(int x, int y);
 int size(int arr[9]);
 int sum(int rgb[9]);
 
-const CImg<float> img("C:\\Users\\jonicmecija\\Desktop\\test2.bmp");
+const CImg<float> img("C:\\Projects\\C++\\git\\rubiksCube\\Rubiks-Cube\\CubeDetection\\test2.bmp");
 
 //I hate my ife <- steven
 	// sume of rgb elements
@@ -88,7 +88,7 @@ int main()
 	/* Image Indexing*/
 	// img(x,y,z,c) pixel x, y, z, color channel
 
-	const CImg<float> img("C:\\Users\\jonicmecija\\Desktop\\test2.bmp");
+	const CImg<float> img("C:\\Projects\\C++\\git\\rubiksCube\\Rubiks-Cube\\CubeDetection\\test2.bmp");
 	img.display();
 	cout << endl; 
 
@@ -129,27 +129,20 @@ int main()
 					r = average(test1);
 					g = average(test2);
 					b = average(test3);
-
-					cout << "max red" << max(test1) << endl;
+					cout << "****************"<<endl;
+					if (r > 100 && g > 100 && b > 100) cout << "WHITE"  << endl;
+					else if (r > 100 && g > 75) cout << "YELLOW"<< endl;
+					else if (r > 105) cout << "ORANGE"  << endl;
+					else if (r > g && r > b) cout << "RED" << endl;
+					else if (g > r && g > b) cout << "GREEN" << endl;
+					else if (b > r && b > g) cout << "BLUE" << endl;
+					cout << "****************"<<endl<<endl;
+					//cout << "max red" << max(test1) << endl;
 
 					test1.clear();
 					test2.clear();
 					test3.clear();
-
-				}
-
-
-
-				if (r > 76 && g < 74 && b < 84) cout << "RED" << endl << endl;
-				else if (r < 49 && g < 59 && b > 69) cout << "BLUE" << endl << endl;
-				else if (r < 55 && g > 60 && b < 80) cout << "GREEN" << endl << endl;
-				else if (r > 105 && g > 35 && 20 < b && b < 45) cout << "ORANGE" << endl << endl;
-				else if (r > 109 && g > 75 && b < 70) cout << "YELLOW" << endl << endl;
-				else if (r > 72 && g > 68 && b > 72) cout << "WHITE" << endl << endl;
-
-				
-				
-
+				}			
 			}
 		}
 	}
@@ -200,12 +193,10 @@ int average(vector<int>test) {
 
 	if (test.size() >= 9) {
 		sum = accumulate(test.begin(), test.end(), 0);
-		cout << "Sum: " << sum << endl;
+		//cout << "Sum: " << sum << endl;
 		avg = sum / test.size();
 		cout << "Average: " << avg << endl << endl;
 	}
-
-
 	test.clear(); //clear the vector DUH??
 
 	return avg;

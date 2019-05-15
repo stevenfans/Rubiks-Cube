@@ -119,7 +119,6 @@ int main()
 					avg = sum / test.size(); 
 					cout << "Average: " << avg << endl<<endl; 
 					test.clear(); //clear the vector DUH??
-				
 					
 				}
 				
@@ -194,7 +193,7 @@ int blue_pix(int x, int y) {
 	int b = (int)img(x, y, 0, 2);
 	return b;
 }
-
+  
 void pix_color(int x, int y) {
 	// R:0 G:1 B:2
 	//vector<int> red;
