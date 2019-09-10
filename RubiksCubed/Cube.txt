@@ -1,0 +1,20 @@
+R Face (0-8):
+RORRRWGYR
+G Face (9-17):
+WYYBGBWOY
+B Face (18-26):
+WWBRBOBOG
+Y Face (27-35):
+OBYRYBGGO
+W Face (36-44):
+OYWWWGBYG
+O Face (45-53):
+RRYWOGBGO
+
+
+R - 930e12	
+G - 246715
+B - 183d91
+Y - c98b0d
+W - ccc4cc
+O - d84a21
