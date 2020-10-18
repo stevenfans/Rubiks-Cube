@@ -1,7 +1,7 @@
 # Rubiks Cube Solver
 
 <img src= "https://github.com/stevenfans/Rubiks-Cube/blob/master/images/group.JPG" width = "400">
-Right to left: Steven Phan, Jose Melgar-Urrutia, Benjamin Adinata, Jonic Mecija
+Left to right: Steven Phan, Jose Melgar-Urrutia, Benjamin Adinata, Jonic Mecija
 
 CSULB 490: Computer Engineering Senior Project Design
 
